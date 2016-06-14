@@ -13,11 +13,9 @@ class String
 
   def self.create_colors
     @@Colorizr_colors.each { |key,value|
-      class_eval{
-        def key
-             "\e[#{value}m" + self.to_s + "\e[0m"
-        end
-      }
+      send(:define_method, "#{key}") do
+        "\e[#{value}m" + self.to_s + "\e[0m"
+      end
       }
   end
 
