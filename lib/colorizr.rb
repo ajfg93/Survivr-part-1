@@ -11,7 +11,7 @@ class String
     :black => 30
   }
 
-  def self.create_colors
+  def self.create_colors  #why this won't define all the methods I want
     @@Colorizr_colors.each { |key,value|
       class_eval{
         def key
